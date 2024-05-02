@@ -1,38 +1,916 @@
-.App {
+body{
+  width:100%;
+  margin:0;
+  padding:0;
+  overflow-x: hidden;
+  background: radial-gradient(ellipse at bottom,#0D1E32,#111);
+}
+
+.night{
+ position: absolute;/* position: relative; */
+ width: 100%;
+ height: 100%;
+ transform: rotateZ(40deg);
+}
+
+.star{
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ height: 4px;
+ background: linear-gradient(-45deg, #5F91FF, rgba(0, 0, 255, 0));
+ border-radius: 999px;
+ filter: drop-shadow(0 0 6px #699BFF);
+ animation: tail 3s ease-in-out infinite,
+            falling 3s ease-in-out infinite;
+}
+
+@keyframes tail{
+ 0%{
+   width: 0;
+ }
+ 30%{
+   width: 100px;
+ }
+ 100%{
+   width: 0;
+ }
+}
+
+@keyframes falling{
+ 0%{
+   transform: translateX(0);
+ }
+ 100%{
+   transform: translateX(300px);
+ }
+}
+
+.star::before, .star::after{
+ content: '';
+ position: absolute;
+ top: calc(50% - 2px);
+ right: 0;
+ height: 4px;
+ background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5F91FF, rgba(0, 0, 255, 0));
+ border-radius: 100%;
+ transform: translateX(50%) rotateZ(45deg);
+ animation: shining 3s ease-in-out infinite;
+}
+
+@keyframes shining{
+ 0%{
+   width: 0;
+ }
+ 50%{
+   width: 30px;
+ }
+ 100%{
+   width: 0;
+ }
+}
+
+.star::after{
+ transform: translateX(50%) rotateZ(-45deg);
+}
+
+.star:nth-child(1){
+ top: calc(50% - 100px);
+ left: calc(50% - 250px);
+ animation-delay: 1s;
+}
+
+.star:nth-child(1)::before, .star:nth-child(1)::after{
+ animation-delay: 1s;
+}
+
+.star:nth-child(2){
+ top: calc(50% - 50px);
+ left: calc(50% - 200px);
+ animation-delay: 1.2s;
+}
+
+.star:nth-child(2)::before, .star:nth-child(2)::after{
+ animation-delay: 1.2s;
+}
+
+.star:nth-child(3){
+ top: calc(50% - 0px);
+ left: calc(50% - 150px);
+ animation-delay: 1.4s;
+}
+
+.star:nth-child(3)::before, .star:nth-child(3)::after{
+ animation-delay: 1.4s;
+}
+
+.star:nth-child(4){
+ top: calc(50% - -50px);
+ left: calc(50% - 200px);
+ animation-delay: 1.6s;
+}
+
+.star:nth-child(4)::before, .star:nth-child(4)::after{
+ animation-delay: 1.6s;
+}
+
+.star:nth-child(5){
+ top: calc(50% - -100px);
+ left: calc(50% - 250px);
+ animation-delay: 1.8s;
+}
+
+.star:nth-child(5)::before, .star:nth-child(5)::after{
+ animation-delay: 1.8s;
+}
+
+.navbar{
+ z-index: 999; /* Ensure the navigation bar is above other elements */
+ position:sticky;
+ height:60px;
+ max-width:1200px;
+ margin:0;
+ display:flex;
+ align-items: center;
+ justify-content: space-between;
+ margin-left: 70px;
+ z-index: 999; /* Ensure the navigation bar is above other elements */
+ transition: background-color 2s ease;
+ width:90%;
+ border-radius: 40px;
+ margin-top:10px;
+}
+.navbar ul{
+ list-style: none;
+}
+
+.navbar li{
+ display: inline-block;
+ 
+}
+
+.ulAdd{
+   background-color: rgba(0, 0, 0, 0.9);
+   transition: background-color 2s ease;
+}
+
+.navbar .center{
+   text-align:center;
+   color:#fff;
+   justify-content: center;
+   align-items: center;
+   font-size:20px;
+   margin-right: 70px;
+}
+
+.navbar a{
+ text-decoration: none;
+ color:#fff;
+ width:100px;
+ display:block;
+ padding:25px 2px;
+ font-size:15px;
+ text-transform: uppercase;
+ font-weight: bold;
+ text-align: center;
+}
+
+.navbar a:hover{
+ color:aqua;
+ font-size:19px;
+}
+
+.navbar .right{
+ font-size:20px;
+ text-transform: capitalize;
+ color: #fff;
+ cursor:pointer;
+ background-color: rgb(104, 83, 45);
+ border-radius: 40px;
+ width: 140px;
+ text-align: center;
+ height: 26px;
+ margin-right: 20px;
+ padding: 0;
+}
+
+.navbar .right:hover{
+ height: 29px;
+ width: 150px;
+ font-size:21px;
+ color: #fff;
+}
+
+.navbar .mobile{
+background-color: rgba(225,225,255,0.1);
+backdrop-filter: blur(1px);
+height: 50px;
+width:100%;
+margin-left:30px;
+border-radius: 40px;
+margin-top:10px;
+display:none;
+}
+
+.navbar .toggle_btn{
+ color:#fff;
+ font-size:1.5rem;
+ cursor:pointer;
+ display:none;
+ position:absolute;
+ right:1rem;
+text-align: right;
+ top:10px;
+}
+.fa-solidfa-download{
+  color:black;
+}
+
+.navbar .name{
+ color:#fff;
+ font-size:1.5rem;
+ cursor:pointer;
+ display:none;
+ padding-top: 10px;
+ text-align: center;
+}
+
+.dropdown_menu{
+ position:absolute;
+ right:3rem;
+ top:70px;
+ height: 0;
+ width:300px;
+ background: rgba(225,225,255,0.1);
+ backdrop-filter: blur(15px);
+ border-radius:10px;
+ overflow:hidden;
+display:none;
+transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open{
+ height: 300px;
+}
+
+.dropdown_menu li{
+ padding:0.1rem;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+
+.dropdown_menu .resume{
+ background-color: rgb(104, 83, 45);
+ border-radius: 40px;
+ width: 55%;
+ text-align: center;
+ height: 26px;
+ justify-content: center;
+ align-items:center;
+ text-transform: capitalize;
+ font-size: 20px;
+ cursor:pointer;
+ padding: 0;
+}
+
+.dropdown_menu .resume:hover{
+ height: 29px;
+ width: 58%;
+ font-size:21px;
+ color: #fff;
+}
+
+/* Page content */
+.content {
+ padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+ position:sticky;
+ top: 10px;
+ width: 90%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+ padding-top: 60px;
+}
+
+/*end of navbar*/
+
+.intro{
+   text-align: center;
+   font-size:30px;
+   animation: fadeIn 2s ease-in-out;
+   height: 90vh;
+   justify-content: center;
+   align-items: center;
+}
+
+.intro h1{
+ position: relative; /* or absolute, depending on your layout needs */
+ z-index: 99;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ margin-top: 100px;
+ color: #1c6b3d;
+}
+
+.myName{
+ color: #25a85c;
+}
+
+.knowMe{
+ background-color: rgb(104, 83, 45);
+ border: solid black;
+ width: 13%;
+ text-align: center;
+ height: 25px;
+ justify-content: center;
+ align-items:center;
+ text-transform: capitalize;
+ font-size: 20px;
+ cursor:pointer;
+ padding:17px 14px;
+ text-decoration: none;
+ color:#fff;
+ top:10%;
+ left:10%;
+ position: relative; /* or absolute, depending on your layout needs */
+ z-index: 99;
+}
+
+.knowMe:hover{
+ width:14%;
+ height: 28px;
+ font-size:23px;
+}
+
+@keyframes fadeIn {
+   from {
+     opacity: 0;
+     transform: translateX(-50px);
+   }
+   to {
+     opacity: 1;
+     transform: translateX(0);
+   }
+ }
+
+ .about{
+   width: 100%;
+   height:900px;
+   background-color: black;
+ }
+
+ .about img{
+   height: 54.7%;
+   width: 35%;
+   background-size: cover; 
+   background-position: center;
+   object-fit: cover;
+   border-radius: 100%;
+   text-align: center;
+   display: block;
+ margin-left: auto;
+ margin-right: auto;
+ padding-top: 10px;
+ }
+
+  .hd{
+   font-size:41px;
+   color:#fff;
+  margin-top:30px;
+  margin-left: 15px;
+   background-color: rgb(104, 83, 45);
+   width: 140px;
+   border-radius: 40px;
+   border:0;
+ }
+
+ .hd:nth-child(1){
+   width:170px;
+    margin-top:75px;
+ }
+
+ 
+
+ .para{
+  
+width: 60%;
+ }
+ 
+
+ .about p{
+   color:#fff;
+   font-size: 25px;
+   margin-left: 15px;
+   
+   font-family: 'Courier New', Courier, monospace;
+ }
+
+ .hd1{
+   display: flex;
+ justify-content: center;
+ align-items: center;  
+ }
+
+ .gallery {
+   width: 990px;
+   display: flex;
+   overflow-x: scroll;
+   padding: 15px;
+   box-sizing: border-box;
+ 
+}
+
+.container {
+   min-width: 100%; /* Set a minimum width for the container */
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-gap: 25px;
+   margin-left: 25px;
+   flex: none;
+   
+}
+
+.image {
+   position: relative;
+   background: #fff;
+   border-radius: 10px;
+   box-sizing: border-box;
+   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+   width: 300px; /* Set a fixed width for each image */
+   filter: grayscale(100%);
+   transition: transform 0.5s;
+   overflow: hidden;
+   height: 390px;
+}
+
+.image:hover {
+   filter: grayscale(0);
+   cursor: pointer;
+   transform: scale(1.1);
+}
+
+.image img {
+   width: 100%;
+   filter: grayscale(100%);
+   transition: transform 0.5s;
+   height: 100%; /* Set the height to 100% to maintain aspect ratio */
+   object-fit: cover;
+   border-radius: 10px;
+}
+
+ .image img:hover{
+   filter:grayscale(0);
+   cursor:pointer;
+ }
+ 
+
+ 
+ .bottom-left {
+   position: absolute;
+ bottom: 10px; /* Adjust as needed */
+ left: 10px; /* Adjust as needed */
+ font-size: 25px;
+ color: rgb(167, 65, 65);
+ padding: 10px;
+ font-weight: bold;
+ }
+
+ .gallery::-webkit-scrollbar{
+   display:none;
+ }
+
+ .gallery-wrap{
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   margin: 5% auto;
+ }
+
+ 
+ 
+
+ .prev, .next {
+   cursor: pointer;
+   width: 20px;
+   color: white;
+   font-weight: bold;
+   font-size: 18px;
+   transition: 0.6s ease;
+   border-radius: 0 3px 3px 0;
+   user-select: none;
+   margin: 20px;
+ }
+ #backBtn{
+   margin: 0px;
+ }
+ 
+ .prev:hover, .next:hover {
+   background-color: rgba(0,0,0,0.8);
+ }
+
+ .contact{
+   background-color: #111;
+   height: 790px;
+ }
+
+ .form{
+   justify-content: center;
+   display: flex;
+ 
+ margin-bottom: 50px;
+ }
+ hr{
+   display: none;
+ }
+
+ .form p{
+   margin-left: 90px;
+   font-size: 25px;
+   color: #ccc;
+ }
+
+ .form .send{
+   justify-content: left;
+   text-align: center;
+   margin-top: 15%;
+   margin-right: 20%;
+   font-size: 25px;
+   color: #ccc;
+ }
+
+ .form a{
+   text-decoration: none;
+   color: #ccc;
+
+ }
+
+ .form label{
+   font-size: 23px;
+   color: #ccc;
+   
+ }
+
+ .form textarea{
+   background-color: rgba(225,225,255,0.1);
+   border: none;
+   
+   color: #fff;
+ }
+
+ .form input{
+   background-color: rgba(225,225,255,0.1);
+   width:380px;
+   height:40px;
+   border: none;
+   font-size: 18px;
+   color: #fff;
+ }
+
+ .form button{
+   border: none;
+   width:180px;
+   height:40px;
+   font-size: 25px;
+   background-color: rgba(225,225,255,0.1);
+   color: aqua;
+   cursor: pointer;
+   text-align: center;
+   margin-left: 100px;
+   font-size: 29px;
+   border-radius: 20px;
+ }
+
+ .form button:hover{
+   font-size: 31px;
+   width:185px;
+   height:45px;
+ }
+ .validate{
+  color: red;
+ }
+ 
+ .Thanks{
+  background-color: rgb(15, 27, 37);
+  width: 600px;
+  height: 350px;
+  margin-left: 25%;
+  position: absolute;
+  margin-top: -60%;
   text-align: center;
-}
+  visibility: hidden; /* Initially hide the element */
+  opacity: 0; /* Initially make the element transparent */
+  transition: opacity 1s, margin-top 2s; /* Apply transition effect on opacity and margin-top properties over 1 second */
+ }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+ 
+ .Thanks.open{
+  visibility: visible; /* Make the element visible */
+  opacity: 1; /* Change opacity to fully visible */
+  margin-top: -40%; /* Move the element down to its final position */
+ }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+ .Thanks h1{
+  margin-top: 18%;
+  color: #ccc;
+ }
 
-.App-link {
-  color: #61dafb;
-}
+ .Thanks button{
+  width: 120px;
+  height: 45px;
+  font-size: 23px;
+  margin-top: 20px;
+  background-color: rgba(225,225,255,0.1);
+  border: none;
+  cursor: pointer;
+  color : aqua;
+  border-radius: 15px;
+ }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ .Thanks button:hover{
+  width: 130px;
+  height: 50px;
+  font-size: 23px;
+ }
+
+ 
+ 
+
+ @media(max-width:999px){
+   .navbar{
+     margin-left: 0;
+     background: none;
+     margin-top:0px;
+   }
+   .navbar ul{
+     display:none;
+   }
+  
+   .navbar .center{
+     display:none;
+   }
+ 
+   .navbar .right{
+     display:none;
+   }
+ 
+   .navbar .toggle_btn{
+     display:block;
+   }
+ 
+   .dropdown_menu{
+     display:block;
+   }
+ 
+   .navbar .name{
+     display:block;
+   }
+ 
+   .navbar .mobile{
+     display:block;
+   }
+ 
+   .intro{
+     height: 700px;
+     font-size:20px;
+     color: #1c6b3d;
+ }
+
+ .about{
+   
+   height:800px;
+   
+ }
+
+ .about img{
+   height: 40%;
+   width: 41%;
+   
+ }
+
+ .hd{
+   font-size:41px;
+   color:#fff;
+  margin-top:30px;
+  margin-left: 15px;
+   background-color: rgb(104, 83, 45);
+   width: 140px;
+   border-radius: 40px;
+   border:0;
+ }
+
+ .para{
+  
+width: 80%;
+ }
+ }
+
+ @media(max-width:850px){
+   .contact{ 
+     height: 880px;
+   }
+
+   .form{
+     justify-content: center;
+     display: block;
+  
+   margin: 10%;
+   }
+
+   .form .send{
+    margin-top: 30px;
+    margin-left: 0%;
+     font-size: 19px;
+     text-align: left;
+   }
+
+  
+   hr{
+     display: block;
+   }
+   .form textarea{
+    
+     width:360px;
+   }
+ 
+   .form input{
+     
+     width:360px;
+    
+   }
+
+   .hd2{
+     display: flex;
+   justify-content: center;
+   align-items: center;  
+   }
+
+   .hd:nth-child(1){
+     width:170px;
+      margin-top:30px;
+   }
+ 
+
+ }
+ 
+ @media(max-width:576px){
+   .dropdown_menu{
+     left:2.5rem;
+     width:85%;
+   }
+
+   .about img{
+     padding-top: 0;
+     height: 45%;
+     width: 100%;
+     background-size: cover;
+     margin-top: 0px; 
+     margin-left: 0px;
+     border-radius: 20px;
+     background-position: center;
+   }
+
+   .knowMe{
+     top:15%;
+     left:0%;
+   }
+ 
+   .night{
+     width: 10%;
+   }
+
+   .about{
+     height:850px;
+   }
+
+   .hd{
+     font-size:27px;
+     color:#fff;
+    margin-top:15px;
+    margin-left: 20px;
+     background-color: rgb(104, 83, 45);
+     width: 100px;
+     border-radius: 15px;
+     border:0;
+   }
+
+   
+
+   .para{
+  
+     width: 96%;
+       }
+
+   .about p{
+     margin-left: 10px;
+     font-size: 23px;
+    text-align: center;
+     font-family: 'Courier New', Courier, monospace;
+     
+   }
+  
+
+   .prev, .next {
+   display: none;
+   }
+
+   .contact{ 
+     height: 820px;
+   }
+
+   .form{
+     justify-content: center;
+     display: block;
+  
+   margin: 10px;
+   }
+
+   .form .send{
+    margin-top: 30px;
+    margin-left: 0%;
+     font-size: 19px;
+     text-align: left;
+   }
+
+  
+   hr{
+     display: block;
+   }
+   .form textarea{
+    
+     width:360px;
+   }
+ 
+   .form input{
+     
+     width:360px;
+    
+   }
+
+   .hd2{
+     display: flex;
+   justify-content: center;
+   align-items: center;  
+   }
+
+   .hd:nth-child(1){
+     width:170px;
+      margin-top:30px;
+   }
+.Thanks{
+
+  margin-top: -140%; /* Move the element down to its final position */
+    width: 100%;
+    height: 350px;
+    margin-left: 0%;
+    position: absolute;
+    transition: opacity 1s, margin-top 2s;
+    text-align: center;
+    
 }
+   .Thanks.open{
+    visibility: visible; /* Make the element visible */
+    opacity: 1; /* Change opacity to fully visible */
+    margin-top: -140%;
+    
+   }
+ 
+ 
+ }
+
+ @media(max-width:354px){
+   .hd:nth-child(1){
+     width:170px;
+      margin-top:30px;
+   }
+   .hd2{
+     display: flex;
+   justify-content: center;
+   align-items: center;  
+   }
+   .about{
+     
+     height:1300px;
+     
+   }
+
+   .form textarea{
+    
+     width:265px;
+   }
+ 
+   .form input{
+     
+     width:265px;
+    
+   }
+ }
+
+ 
