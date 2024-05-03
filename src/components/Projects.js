@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState,useEffect, useRef } from 'react';
+import PostHub from "./PostHub.png"
 
 function Projects() {
     const scrollContainerRef = useRef(null);
@@ -45,17 +46,31 @@ useEffect(() => {
    
     <div className="container">
       <div className="image">
-        <a href="https://incandescent-dasik-cdbd3e.netlify.app/">PostHub</a>
-        <p className="bottom-left">hello world</p>
+      <img src={PostHub}/>
+        <div className="contenetForProjects">
+          <h2>Social media app</h2>
+          <h3>To start using the app, create an account, then log in. Once logged in, you
+             can create your posts, view the posts of other users, comment on their posts, and like their posts.</h3>
+          
+        </div>
+       
+        <p className="bottom-left">
+           
+        <a href="https://incandescent-dasik-cdbd3e.netlify.app/">View PostHub</a>
+        </p>
         
       </div>
       <div className="image">
-        <p className="bottom-left">hello world</p>
+      <p className="bottom-left"> 
+        <a href="https://incandescent-dasik-cdbd3e.netlify.app/">Hello word</a>
+        </p>
        
       </div>
       <div className="image">
         
-        <p className="bottom-left">hello world</p>
+      <p className="bottom-left"> 
+        <a href="https://incandescent-dasik-cdbd3e.netlify.app/">PostHub</a>
+        </p>
       </div>
       </div>
 
