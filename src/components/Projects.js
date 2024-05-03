@@ -45,7 +45,7 @@ useEffect(() => {
    
     <div className="container">
       <div className="image">
-        <a href="https://incandescent-dasik-cdbd3e.netlify.app/">Link</a>
+        <a href="https://incandescent-dasik-cdbd3e.netlify.app/">PostHub</a>
         <p className="bottom-left">hello world</p>
         
       </div>
@@ -58,23 +58,8 @@ useEffect(() => {
         <p className="bottom-left">hello world</p>
       </div>
       </div>
-  
-      <div className="container">
-        <div className="image">
-          <p className="bottom-left">hello world</p>
-        </div>
-        <div className="image">
-          <p className="bottom-left">hello world</p>
-        </div>
-        <div className="image">
-          
-          <p className="bottom-left">hello world</p>
-        </div>
-        </div>
-  
-  </div>
 
-    
+  </div>
 
   <a className="next" id="nextBtn" onClick={handleNextButtonClick}>&#10095;</a>
 

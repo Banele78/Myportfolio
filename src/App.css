@@ -592,6 +592,22 @@ width: 60%;
    width:185px;
    height:45px;
  }
+ .spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #7983ff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  text-align: center;
+  margin-left: 70px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
  .validate{
   color: red;
  }
@@ -912,5 +928,8 @@ width: 80%;
     
    }
  }
+
+ 
+
 
  

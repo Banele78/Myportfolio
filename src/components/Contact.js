@@ -11,6 +11,8 @@ function Contact() {
   const [isValidPhoneNo, setIsValidPhoneNo] = useState("");
   const [isValidName, setIsValidName] = useState("");
   const [sent, setSent]= useState(null);
+  const [disabled, setDisabled]= useState(true);
+
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -21,18 +23,22 @@ function Contact() {
      if(name){
       if (emailRegex.test(email)) {
         if(phoneRegex.test(phoneNo)){
+          setDisabled(false);
           emailjs
         .sendForm('service_yowffxa', 'template_yd3g5k8', form.current, {
           publicKey: '-b2pTfSDtenykJA5N',
         })
+        
         .then(
           (response) => {
             console.log('SUCCESS!');
             setSent(response);
+            setDisabled(true);
           },
           (error) => {
             console.log('FAILED...', error.text);
             setSent("Failed to send email.");
+            setDisabled(true);
           },
         );
         setIsValidPhoneNo(" ");
@@ -54,7 +60,7 @@ function Contact() {
   };
 
   return (
-    <div className="contact" id="contact">
+<div className="contact" id="contact">
     <div className="hd2">
     <button className="hd" >Contact</button>
     </div>
@@ -106,16 +112,21 @@ function Contact() {
       </div>
 <br/>
       <div className="formFields">
-       
+       {disabled ? (<>
         <button name="submit" value="submit">submit</button>
+      
+       </>): 
+        (<>
+       <button name="submit" value="submit" disabled>
+       <div className="spinner"></div></button>
+       </>)
+       
+       }
       </div>
     </form>
-    
   </div>
 
   <div className={`Thanks ${sent ? 'open': ''}`}>
-    
-
     {sent==="Failed to send email." ? ( <>
       <h1>Failed to send email.<br/>Please check all input fields and try again.</h1>
     <button onClick={()=>{setSent(null)}}>Okay</button> 
@@ -124,10 +135,8 @@ function Contact() {
     <button onClick={()=>{setSent(null)}}>Okay</button> 
     </>)
     }
-
   </div>
-
-  </div>
+</div>
   )
 }
 

@@ -11,7 +11,9 @@ function About() {
            {//About section
 }
         <img src={image}/>
+        <div className="hd2">
         <button className="hd">About</button>
+        </div>
         <div className="para">
         <p>I recently graduated from Richfield Institute with a diploma in Information Technology.
            I am a dedicated individual actively seeking opportunities in software development.
