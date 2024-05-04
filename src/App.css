@@ -496,14 +496,47 @@ width: 60%;
 
  .contenetForProjects{
  position: absolute;
- left: 30px;
- top:50px;
+ left: 20px;
+ top:30px;
  display: none;
  }
 
  .image:hover .contenetForProjects{
-  
   display: initial;
+  }
+  .ToolsList {
+    display: flex;
+    padding-right: 20px; /* Or any other padding you want */
+  }
+  
+  .ToolsList > * {
+    margin-right: 5px; /* Adjust this value to control the space between items */
+  }
+  
+  .ToolsList > *:last-child {
+    margin-right: 0; /* Remove the margin from the last item */
+  }
+  
+
+  .Tools{
+    background-color: rgba(192, 192, 216, 0.1);
+backdrop-filter: blur(20px);
+width: 90px;
+text-align: center;
+border-radius: 20px;
+font-weight: bold;
+  }
+
+  .Tools.React{
+    width: 50px;
+  }
+
+  .Tools.CSS{
+    width: 40px;
+  }
+
+  .Tools.Nodejs{
+    width: 60px;
   }
 
  .gallery::-webkit-scrollbar{

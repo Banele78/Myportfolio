@@ -48,6 +48,12 @@ useEffect(() => {
       <div className="image">
       <img src={PostHub}/>
         <div className="contenetForProjects">
+          <div className='ToolsList'>
+          <div className='Tools React'>React</div>
+          <div className='Tools'>javaScript</div>
+          <div className='Tools CSS'>CSS</div>
+          <div className='Tools Nodejs'>Node.js</div>
+          </div>
           <h2>Social media app</h2>
           <h3>To start using the app, create an account, then log in. Once logged in, you
              can create your posts, view the posts of other users, comment on their posts, and like their posts.</h3>
