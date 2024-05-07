@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState,useEffect, useRef } from 'react';
 import PostHub from "./PostHub.png"
+import  CalculatorImg  from './Calculator.png';
 
 function Projects() {
     const scrollContainerRef = useRef(null);
@@ -67,8 +68,20 @@ useEffect(() => {
         
       </div>
       <div className="image">
+      <img src={CalculatorImg}/>
+      <div className="contenetForProjects">
+          <div className='ToolsList'>
+          <div className='Tools React'>React</div>
+          <div className='Tools'>javaScript</div>
+          <div className='Tools CSS'>CSS</div>
+          <div className='Tools Nodejs'>HTML</div>
+          </div>
+          <h2>Calculator app</h2>
+          <h3>It is has basic Calculator operations like adding, subtracting, dividing, and multipling numbers.</h3>
+          
+        </div>
       <p className="bottom-left"> 
-        <a href="https://incandescent-dasik-cdbd3e.netlify.app/">Hello word</a>
+        <a href="https://numwise.netlify.app/">View Calculator</a>
         </p>
        
       </div>
