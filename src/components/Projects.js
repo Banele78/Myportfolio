@@ -2,6 +2,7 @@ import React from 'react'
 import { useState,useEffect, useRef } from 'react';
 import PostHub from "./PostHub.png"
 import  CalculatorImg  from './Calculator.png';
+import  Chatapp  from './chatapp.png';
 
 function Projects() {
     const scrollContainerRef = useRef(null);
@@ -46,6 +47,24 @@ useEffect(() => {
   <div className="gallery"  ref={scrollContainerRef} > 
    
     <div className="container">
+    <div className="image">
+    <img src={Chatapp}/>
+    <div className="contenetForProjects">
+          <div className='ToolsList'>
+          <div className='Tools React'>React</div>
+          <div className='Tools'>javaScript</div>
+          <div className='Tools CSS'>CSS</div>
+          <div className='Tools Nodejs'>firebase</div>
+          </div>
+          <h2>Chat App</h2>
+          <h3></h3>
+        </div>
+        <p className="bottom-left"> 
+          <a href="https://convosync.netlify.app/">View convosync</a>
+          </p>
+        </div>
+
+
       <div className="image">
       <img src={PostHub}/>
         <div className="contenetForProjects">
@@ -58,11 +77,9 @@ useEffect(() => {
           <h2>Social media app</h2>
           <h3>To start using the app, create an account, then log in. Once logged in, you
              can create your posts, view the posts of other users, comment on their posts, and like their posts.</h3>
-          
         </div>
        
-        <p className="bottom-left">
-           
+        <p className="bottom-left">     
         <a href="https://incandescent-dasik-cdbd3e.netlify.app/">View PostHub</a>
         </p>
         
@@ -85,12 +102,7 @@ useEffect(() => {
         </p>
        
       </div>
-      <div className="image">
-        
-      <p className="bottom-left"> 
-        <a href="https://incandescent-dasik-cdbd3e.netlify.app/">PostHub</a>
-        </p>
-      </div>
+      
       </div>
 
   </div>
