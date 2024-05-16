@@ -17,11 +17,6 @@ function Contact() {
   const TempleteId = process.env.REACT_APP_TEMPLETE_ID;
   const publicKey = process.env.REACT_APP_PULIC_KEY;
 
-  console.log(ServiceId)
-  console.log(TempleteId)
-  console.log(publicKey)
-
-
   const sendEmail = (e) => {
     e.preventDefault();
     // Regular expression for validating email format
