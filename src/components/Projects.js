@@ -57,10 +57,12 @@ useEffect(() => {
           <div className='Tools Nodejs'>firebase</div>
           </div>
           <h2>Chat App</h2>
-          <h3></h3>
+          <h3>ConvoSync is a chat application designed to enhance your 
+            communication experience. Whether you're connecting with friends, family, or colleagues,
+             ConvoSync offers a seamless, secure, and engaging platform for all your messaging needs.</h3>
         </div>
         <p className="bottom-left"> 
-          <a href="https://convosync.netlify.app/">View convosync</a>
+          <a href="https://convosync.netlify.app/">View ConvoSync</a>
           </p>
         </div>
 
@@ -75,8 +77,9 @@ useEffect(() => {
           <div className='Tools Nodejs'>Node.js</div>
           </div>
           <h2>Social media app</h2>
-          <h3>To start using the app, create an account, then log in. Once logged in, you
-             can create your posts, view the posts of other users, comment on their posts, and like their posts.</h3>
+          <h3>PostHub is a social media platform designed to bring people closer together. 
+             Once logged in, you can create posts, view posts of other users, comment on
+             their posts, and like their posts.</h3>
         </div>
        
         <p className="bottom-left">     

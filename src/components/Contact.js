@@ -13,6 +13,14 @@ function Contact() {
   const [sent, setSent]= useState(null);
   const [disabled, setDisabled]= useState(true);
 
+  const ServiceId = process.env.REACT_APP_SERVICE_ID;
+  const TempleteId = process.env.REACT_APP_TEMPLETE_ID;
+  const publicKey = process.env.REACT_APP_PULIC_KEY;
+
+  console.log(ServiceId)
+  console.log(TempleteId)
+  console.log(publicKey)
+
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -25,8 +33,8 @@ function Contact() {
         if(phoneRegex.test(phoneNo)){
           setDisabled(false);
           emailjs
-        .sendForm('service_yowffxa', 'template_yd3g5k8', form.current, {
-          publicKey: '-b2pTfSDtenykJA5N',
+        .sendForm(ServiceId, TempleteId, form.current, {
+          publicKey: publicKey,
         })
         
         .then(
