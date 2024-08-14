@@ -714,18 +714,22 @@ font-weight: bold;
   font-size: 23px;
  }
 
- 
- 
-
  @media(max-width:1299px){
   
  
-   .intro{
-    
-     font-size:20px;
-     color: #1c6b3d;
- }
+   
+  .intro h1{
+   
+   margin-top: 25vh;
+   
+  }
+}
+ 
 
+ @media(max-width:1200px){
+  
+ 
+   
  .intro h1{
   
   margin-top: 35vh;
@@ -762,6 +766,12 @@ width: 80%;
  }
 
  @media(max-width:850px){
+  .intro{
+    
+    font-size:20px;
+    color: #1c6b3d;
+}
+
   .navbar{
     margin-left: 0;
     background: none;
@@ -842,6 +852,7 @@ width: 80%;
  }
  
  @media(max-width:500px){
+  
    .dropdown_menu{
      left:2.5rem;
      width:85%;
