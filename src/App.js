@@ -16,7 +16,10 @@ function App() {
     <div className="star"></div>
     <div className="star"></div>
     <div className="star"></div>
+    <a href="#about" className="knowMe big">get to know me</a>
+   
   </div>
+  
   <Navbar/>
   
          {//Welcome to my portfolio intro
@@ -25,7 +28,7 @@ function App() {
         <h1>
             Hello, I'm <span className="myName">Banele Nhlapo</span>.<br/> I'm a full stack web developer. 
         </h1>
-        <a href="#about" className="knowMe">get to know me</a>
+        <a href="#about" className="knowMe small">get to know me</a>
     </div>
     <About/>
     <Projects/>

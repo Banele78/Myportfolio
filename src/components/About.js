@@ -9,8 +9,9 @@ function About() {
       
     <div className="about" id="about">
            {//About section
-}
+}        
         <img src={image}/>
+        
         <div className="hd2">
         <button className="hd">About</button>
         </div>
